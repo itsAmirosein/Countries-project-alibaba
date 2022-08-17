@@ -1,43 +1,37 @@
 import React from 'react'
+import { CardsProps } from './types'
 
-function Cards() {
+function Cards({ cardInfo }: CardsProps) {
     return (
         <div className='card'>
             <div className='_flag-container'>
-                flag
+                <img src={cardInfo?.flag} alt='flag' className='_flag-img'/>
             </div>
             <div className='_card-info-container'>
                 <div className='_card-info-box'>
                     <h3 className='_card-info-title'>
-                        title
+                        {cardInfo?.name}
                     </h3>
                     <p>
                         <b>
-                            bold: 
+                            Population:
                         </b>
-                           { ` text`}
-                   
+                        {` ${cardInfo?.population}`}
+
                     </p>
                     <p>
                         <b>
-                            bold: 
+                            Region:
                         </b>
-                           { ` text`}
-                   
+                        {` ${cardInfo?.region}`}
+
                     </p>
                     <p>
                         <b>
-                            bold: 
+                            Capital:
                         </b>
-                           { ` text`}
-                   
-                    </p>
-                    <p>
-                        <b>
-                            bold: 
-                        </b>
-                           { ` text`}
-                   
+                        {` ${cardInfo.capital}`}
+
                     </p>
                 </div>
             </div>

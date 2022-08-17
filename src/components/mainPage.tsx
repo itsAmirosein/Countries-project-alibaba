@@ -2,8 +2,13 @@ import { Box, TextField, IconButton, FormControl, InputLabel, Select, OutlinedIn
 import SearchIcon from '@mui/icons-material/Search';
 import React from 'react'
 import Cards from './cards';
+import { useSelector } from 'react-redux';
+import { InitialState } from '../redux/types'
 
 function MainPage() {
+
+  const { countriesData } = useSelector((state: InitialState) => state)
+
   return (
     <div className='homepage-container'>
       <div className='_search-bar'>
@@ -12,11 +17,11 @@ function MainPage() {
             <IconButton className='_searchIcon-Btn'>
               <SearchIcon />
             </IconButton>
-            <input type="text" className='_search-input' />
+            <input type="text" className='_search-input' placeholder='Search for a country ...' />
           </div>
         </div>
         <div className='_filter-box'>
-          <FormControl  className='_select-container'>
+          <FormControl className='_select-container'>
             <InputLabel id="demo-multiple-name-label">Filter by Region</InputLabel>
             <Select
               labelId="demo-multiple-name-label"
@@ -41,12 +46,8 @@ function MainPage() {
         </div>
       </div>
       <div className='_cards-container'>
-        <Cards />
-        <Cards />
-        <Cards />
-        <Cards />
-        <Cards />
-        </div>
+        {countriesData?.map(item => <Cards cardInfo={item} />)}
+      </div>
     </div>
   )
 }

@@ -7,8 +7,21 @@ import './styles/main.scss'
 import DetailsPage from "./components/detailsPage";
 import Header from "./components/header";
 import MainPage from "./components/mainPage";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux'
+import { getAllDataFromApi } from './redux/actions'
 
 function App() {
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch({
+      type: getAllDataFromApi
+    })
+  }, [])
+
+
   return (
     <>
       <Header />
