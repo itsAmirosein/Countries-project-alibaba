@@ -1,0 +1,42 @@
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    border: 1px solid red;
+    width: 300px;
+    height: 400px;
+    margin: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+
+    ._flag-container {
+        border: 1px solid black;
+        height: 50%;
+    }
+
+    ._card-info-container {
+        border: 1px solid blue;
+        height: 50%;
+        @include center;
+
+        ._card-info-box {
+            border: 1px solid black;
+            width: 80%;
+            height: 80%;
+            font-family: 'Nunito Sans light';
+            ._card-info-title {
+                padding: 5px 0;
+                font-family: 'Nunito Sans bold';
+                
+            }
+            & b {
+                font-weight: bold;
+                font-family: 'Nunito Sans';
+                font-weight: bold;
+            }
+        }
+    }
+}

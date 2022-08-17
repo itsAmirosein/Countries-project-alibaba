@@ -1,0 +1,147 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: hsl(0deg, 0%, 98%);
+}
+
+.header-container {
+  background-color: hsl(0deg, 0%, 100%);
+  display: flex;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+.header-container ._text {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 15px 50px;
+  font-family: "Nunito Sans bold";
+  font-size: 16px;
+}
+.header-container ._darkmode-btn {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 15px 50px;
+  font-family: "Nunito Sans";
+}
+
+.card {
+  border: 1px solid red;
+  width: 300px;
+  height: 400px;
+  margin: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.card ._flag-container {
+  border: 1px solid black;
+  height: 50%;
+}
+.card ._card-info-container {
+  border: 1px solid blue;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card ._card-info-container ._card-info-box {
+  border: 1px solid black;
+  width: 80%;
+  height: 80%;
+  font-family: "Nunito Sans light";
+}
+.card ._card-info-container ._card-info-box ._card-info-title {
+  padding: 5px 0;
+  font-family: "Nunito Sans bold";
+}
+.card ._card-info-container ._card-info-box b {
+  font-weight: bold;
+  font-family: "Nunito Sans";
+  font-weight: bold;
+}
+
+.homepage-container ._search-bar {
+  display: flex;
+  margin: 50px 0;
+}
+.homepage-container ._search-bar ._search-container {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 15px 50px;
+  font-family: "Nunito Sans bold";
+  font-size: 16px;
+}
+.homepage-container ._search-bar ._search-container ._input-box {
+  background-color: hsl(0deg, 0%, 100%);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 5px 10px;
+  width: 80%;
+  border-radius: 7px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+.homepage-container ._search-bar ._search-container ._input-box ._searchIcon-Btn {
+  margin: 0 5px;
+}
+.homepage-container ._search-bar ._search-container ._input-box ._search-input {
+  border: none;
+  outline: none;
+  padding: 10px 0;
+  font-size: 16px;
+  width: 100%;
+}
+.homepage-container ._search-bar ._filter-box {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 15px 50px;
+  font-family: "Nunito Sans";
+}
+.homepage-container ._search-bar ._filter-box ._select-container {
+  width: 250px;
+}
+.homepage-container ._search-bar ._filter-box ._select-input {
+  border: none;
+  outline: none;
+  background-color: hsl(0deg, 0%, 100%);
+}
+.homepage-container ._cards-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  padding: 15px 40px;
+}
+@media only screen and (max-width: 722px) {
+  .homepage-container ._cards-container {
+    justify-content: center;
+  }
+}
+
+@font-face {
+  font-family: "Nunito Sans bold";
+  src: url("../fonts/NunitoSans-Black.ttf");
+}
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("../fonts/NunitoSans-Bold.ttf");
+}
+@font-face {
+  font-family: "Nunito Sans light";
+  src: url("../fonts/NunitoSans-Light.ttf");
+}
+@font-face {
+  font-family: "Nunito Sans bolditalic";
+  src: url("../fonts/NunitoSans-Light.ttf");
+}/*# sourceMappingURL=main.css.map */
