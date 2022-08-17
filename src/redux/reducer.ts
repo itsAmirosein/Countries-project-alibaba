@@ -1,13 +1,17 @@
 import { Reducer } from "redux";
+import { setDataToState } from './actions'
+import {InitialState,ActionsType} from './types'
 
-interface InitialState {
-    state:true
-}
-interface ActionsType {
-    type: string;
-    // payload: any
+
+export const reducer: any = (state: InitialState, action: ActionsType) => {
+    return ACTIONS[action.type] ? ACTIONS[action.type](state, action.payload) : () => state
 }
 
-export const reducer:any =(state: InitialState, action: ActionsType) =>{
-    return state
+
+const ACTIONS: any = {
+    [setDataToState]: handleCountriesData
+}
+
+function handleCountriesData(state: InitialState, payload: any) {
+    return { ...state, countriesData: payload }
 }
