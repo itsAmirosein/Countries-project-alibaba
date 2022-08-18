@@ -97,7 +97,7 @@ function MainPage() {
       </div>
       <div className='_cards-container'>
         {countriesData?.map(item =>
-          <Link to={`/details/${item?.name}`} className="_link">
+          <Link to={`/details/${item?.name}`} className="_link" key={item?.name}>
             <Cards cardInfo={item} />
           </Link>)}
       </div>
