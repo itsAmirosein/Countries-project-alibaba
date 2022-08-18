@@ -1,8 +1,7 @@
+
 .header-container {
-    background-color: hsl(0, 0%, 100%);
     display: flex;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-
     ._text {
         width: 50%;
         display: flex;
@@ -11,7 +10,7 @@
         padding: 15px 50px;
         font-family: 'Nunito Sans bold';
         font-size: 16px;
-    }
+            }
 
     ._darkmode-btn-container {
         width: 50%;
@@ -26,7 +25,6 @@
             border: none;
             outline: none;
             box-shadow: none;
-            color: black;
         }
     }
 

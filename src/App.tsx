@@ -10,10 +10,12 @@ import MainPage from "./components/mainPage";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllDataFromApi } from './redux/actions'
+import { InitialState } from "./redux/types";
 
 function App() {
 
   const dispatch = useDispatch()
+  const { darkMode } = useSelector((state: InitialState) => state)
 
   useEffect(() => {
     dispatch({
@@ -23,15 +25,15 @@ function App() {
 
 
   return (
-    <>
+    <div className={`_root ${darkMode ? 'veryDarkMode' : 'lightMode'}`}>
       <Header />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/details" element={<DetailsPage />} />
+          <Route path="/details/:name" element={<DetailsPage />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 

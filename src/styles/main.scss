@@ -1,31 +1,92 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
-body{
-    background-color:hsl(0, 0%, 98%);
+
+._root{
+    min-height: 100vh;
 }
+
+@mixin Colors($color) {
+    @if($color=='light') {
+        color: hsl(200, 15%, 8%) !important;
+    }
+
+    @else if($color=='dark') {
+        color: hsl(0, 0%, 100%) !important;
+
+    }
+
+    @else if($color=='veryDark') {
+        color: hsl(0, 0%, 100%) !important;
+
+    }
+}
+@mixin backgroundColor($color) {
+    @if($color=='light') {
+        background-color: hsl(0, 0%, 100%) !important;
+    }
+
+    @else if($color=='dark') {
+        background-color: hsl(209, 23%, 22%) !important;
+
+    }
+
+    @else if($color=='veryDark') {
+        background-color: hsl(207, 26%, 17%) !important;
+    }
+}
+
+.lightMode {
+    transition: all 0.5s;
+    @include Colors('light');
+    @include backgroundColor('light')
+}
+
+.darkMode {
+    transition: all 0.5s;
+    @include Colors('dark');
+    @include backgroundColor('dark')
+}
+.veryDarkMode {
+    transition: all 0.5s;
+    @include backgroundColor('veryDark');
+    @include Colors('veryDark');
+}
+.darkColorMode {
+    transition: all 0.5s;
+    @include Colors('dark')
+}
+.lightColorMode {
+    transition: all 0.5s;
+    @include Colors('light')
+}
+
+
 
 @import './Header/header';
 @import './HomePage/main.scss';
+@import './Details/details';
 
 
 
-
-@font-face{
+@font-face {
     font-family: 'Nunito Sans bold';
     src: url('../fonts/NunitoSans-Black.ttf');
 }
-@font-face{
+
+@font-face {
     font-family: 'Nunito Sans';
     src: url('../fonts/NunitoSans-Bold.ttf');
 }
-@font-face{
+
+@font-face {
     font-family: 'Nunito Sans light';
     src: url('../fonts/NunitoSans-Light.ttf');
 }
-@font-face{
+
+@font-face {
     font-family: 'Nunito Sans bolditalic';
     src: url('../fonts/NunitoSans-Light.ttf');
 }

@@ -1,12 +1,13 @@
 import { Reducer } from "redux";
-import { setAllCountries, setNewCountry, searchInputChange, filterValueChange,filterCountries } from './actions'
+import { setAllCountries, setNewCountry, searchInputChange, filterValueChange,darkModeChange } from './actions'
 import { InitialState, ActionsType } from './types'
 
 const initialState: InitialState = {
     countriesData: [],
     searchInputValue: '',
     filterValue: '',
-    filterItems: []
+    filterItems: [],
+    darkMode:false
 }
 
 export const reducer: any = (state: InitialState = initialState, action: ActionsType) => {
@@ -19,6 +20,7 @@ const ACTIONS: any = {
     [setNewCountry]: handleNewCountry,
     [searchInputChange]: handleSearchInputChange,
     [filterValueChange]: handleFilterValueChange,
+    [darkModeChange]: handleDarkModeChange,
 }
 
 function handleCountriesData(state: InitialState, payload: any): InitialState {
@@ -35,4 +37,7 @@ function handleSearchInputChange(state: InitialState, payload: any): InitialStat
 }
 function handleFilterValueChange(state: InitialState, payload: any): InitialState {
     return { ...state, filterValue: payload }
+}
+function handleDarkModeChange(state: InitialState, payload: any): InitialState {
+    return { ...state, darkMode: payload }
 }

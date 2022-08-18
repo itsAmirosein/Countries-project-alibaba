@@ -4,12 +4,13 @@ import React, { useMemo } from 'react'
 import Cards from './cards';
 import { useSelector, useDispatch } from 'react-redux';
 import { InitialState } from '../redux/types'
-import { filterValueChange, getSearchedCountry, searchInputChange, filterCountries} from '../redux/actions'
-
+import { filterValueChange, getSearchedCountry, searchInputChange, filterCountries } from '../redux/actions'
+import { Link } from 'react-router-dom';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 function MainPage() {
 
-  const { countriesData, searchInputValue,filterValue ,filterItems} = useSelector((state: InitialState) => state)
+  const { countriesData, searchInputValue, filterValue, filterItems, darkMode } = useSelector((state: InitialState) => state)
   const dispatch = useDispatch()
 
   function handleOnSearchInput(value: string) {
@@ -50,7 +51,7 @@ function MainPage() {
     <div className='homepage-container'>
       <div className='_search-bar'>
         <div className='_search-container'>
-          <div className='_input-box'>
+          <div className={`_input-box ${darkMode ? 'darkMode' : 'lightMode'}`}>
             <IconButton className='_searchIcon-Btn' onClick={handleOnSearchBtnClick}>
               <SearchIcon />
             </IconButton>
@@ -58,22 +59,29 @@ function MainPage() {
               type="text"
               onKeyDown={handleOnKeyDown}
               onChange={handleOnInputChange}
-              className='_search-input'
+              className={`_search-input ${darkMode ? 'darkMode' : 'lightMode'}`}
               placeholder='Search for a country ...'
               value={searchInputValue}
             />
           </div>
         </div>
         <div className='_filter-box'>
-          <FormControl className='_select-container'>
-            <InputLabel id="demo-simple-select-label">Filter by Region</InputLabel>
+          <FormControl className={`_select-container`}>
+            <InputLabel id="demo-simple-select-label" className={darkMode ? 'darkColorMode' : 'lightColorMode'}>Filter by Region</InputLabel>
             <Select
+              inputProps={{
+                classes: {
+                  icon: { fill: 'white' }
+                }
+              }}
+              IconComponent={()=><ArrowDropDownIcon className={`_filter-arrow ${darkMode ? 'darkColorMode' : 'lightColorMode'}`}/> }
+              sx={{ color: 'white' }}
               label='Filter by Region'
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              className='_select-input'
-            value={filterValue}
-            onChange={handleOnFilterChange}
+              className={`_select-input ${darkMode ? 'darkMode' : 'lightMode'}`}
+              value={filterValue}
+              onChange={handleOnFilterChange}
             >
               {filterItems?.map((country) => (
                 <MenuItem
@@ -88,7 +96,10 @@ function MainPage() {
         </div>
       </div>
       <div className='_cards-container'>
-        {countriesData?.map(item => <Cards cardInfo={item} />)}
+        {countriesData?.map(item =>
+          <Link to={`/details/${item?.name}`} className="_link">
+            <Cards cardInfo={item} />
+          </Link>)}
       </div>
     </div>
   )

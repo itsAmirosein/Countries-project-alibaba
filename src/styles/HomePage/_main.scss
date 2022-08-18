@@ -41,7 +41,8 @@
                     padding: 10px 0;
                     font-size: 16px;
                     width: 100%;
-                    &::placeholder{
+
+                    &::placeholder {
                         color: rgb(183, 183, 183);
                     }
                 }
@@ -64,7 +65,9 @@
             ._select-input {
                 border: none;
                 outline: none;
-                background-color: hsl(0, 0, 100%);
+                ._filter-arrow{
+                    margin-right:10px;
+                }
             }
         }
     }
@@ -72,15 +75,38 @@
     ._cards-container {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-start;
         flex-wrap: wrap;
-        padding: 15px 40px;
-    }
 
-    @media only screen and (max-width: 722px) {
-        ._cards-container {
-            justify-content: center;
+        ._link {
+            text-decoration: none;
+            color: #000000;
         }
     }
-    
+
+
+}
+
+@media only screen and (max-width: 740px) {
+    ._cards-container {
+        justify-content: center !important;
+    }
+
+    ._search-bar {
+        flex-direction: column;
+        ._search-container {
+            width: 100% !important;
+            ._input-box {
+                width: 100% !important;
+            }
+        }
+        ._filter-box {
+            width: 100% !important;
+            justify-content:flex-start !important;
+            ._select-container {
+                width: 100% !important;
+            }
+        }
+    }
+
 }

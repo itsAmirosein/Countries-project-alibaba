@@ -4,12 +4,39 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: hsl(0deg, 0%, 98%);
+._root {
+  min-height: 100vh;
+}
+
+.lightMode {
+  transition: all 0.5s;
+  color: hsl(200deg, 15%, 8%) !important;
+  background-color: hsl(0deg, 0%, 100%) !important;
+}
+
+.darkMode {
+  transition: all 0.5s;
+  color: hsl(0deg, 0%, 100%) !important;
+  background-color: hsl(209deg, 23%, 22%) !important;
+}
+
+.veryDarkMode {
+  transition: all 0.5s;
+  background-color: hsl(207deg, 26%, 17%) !important;
+  color: hsl(0deg, 0%, 100%) !important;
+}
+
+.darkColorMode {
+  transition: all 0.5s;
+  color: hsl(0deg, 0%, 100%) !important;
+}
+
+.lightColorMode {
+  transition: all 0.5s;
+  color: hsl(200deg, 15%, 8%) !important;
 }
 
 .header-container {
-  background-color: hsl(0deg, 0%, 100%);
   display: flex;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
@@ -22,7 +49,7 @@ body {
   font-family: "Nunito Sans bold";
   font-size: 16px;
 }
-.header-container ._darkmode-btn {
+.header-container ._darkmode-btn-container {
   width: 50%;
   display: flex;
   justify-content: flex-end;
@@ -30,40 +57,51 @@ body {
   padding: 15px 50px;
   font-family: "Nunito Sans";
 }
+.header-container ._darkmode-btn-container ._darkModeBtn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
 
 .card {
-  border: 1px solid red;
-  width: 300px;
+  width: 278px;
   height: 400px;
-  margin: 10px;
+  margin: 55px 50px;
   border-radius: 10px;
   overflow: hidden;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 .card ._flag-container {
-  border: 1px solid black;
   height: 50%;
 }
+.card ._flag-container ._flag-img {
+  width: 100%;
+  height: 100%;
+}
 .card ._card-info-container {
-  border: 1px solid blue;
   height: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .card ._card-info-container ._card-info-box {
-  border: 1px solid black;
   width: 80%;
   height: 80%;
   font-family: "Nunito Sans light";
 }
 .card ._card-info-container ._card-info-box ._card-info-title {
-  padding: 5px 0;
+  padding: 15px 0;
   font-family: "Nunito Sans bold";
 }
 .card ._card-info-container ._card-info-box b {
   font-weight: bold;
   font-family: "Nunito Sans";
   font-weight: bold;
+}
+.card ._card-info-container ._card-info-box p {
+  padding: 2px 0;
 }
 
 .homepage-container ._search-bar {
@@ -99,6 +137,15 @@ body {
   font-size: 16px;
   width: 100%;
 }
+.homepage-container ._search-bar ._search-container ._input-box ._search-input::-moz-placeholder {
+  color: rgb(183, 183, 183);
+}
+.homepage-container ._search-bar ._search-container ._input-box ._search-input:-ms-input-placeholder {
+  color: rgb(183, 183, 183);
+}
+.homepage-container ._search-bar ._search-container ._input-box ._search-input::placeholder {
+  color: rgb(183, 183, 183);
+}
 .homepage-container ._search-bar ._filter-box {
   width: 50%;
   display: flex;
@@ -113,22 +160,121 @@ body {
 .homepage-container ._search-bar ._filter-box ._select-input {
   border: none;
   outline: none;
-  background-color: hsl(0deg, 0%, 100%);
+}
+.homepage-container ._search-bar ._filter-box ._select-input ._filter-arrow {
+  margin-right: 10px;
 }
 .homepage-container ._cards-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  border: 1px solid black;
-  padding: 15px 40px;
 }
-@media only screen and (max-width: 722px) {
-  .homepage-container ._cards-container {
-    justify-content: center;
-  }
+.homepage-container ._cards-container ._link {
+  text-decoration: none;
+  color: #000000;
 }
 
+@media only screen and (max-width: 740px) {
+  ._cards-container {
+    justify-content: center !important;
+  }
+  ._search-bar {
+    flex-direction: column;
+  }
+  ._search-bar ._search-container {
+    width: 100% !important;
+  }
+  ._search-bar ._search-container ._input-box {
+    width: 100% !important;
+  }
+  ._search-bar ._filter-box {
+    width: 100% !important;
+    justify-content: flex-start !important;
+  }
+  ._search-bar ._filter-box ._select-container {
+    width: 100% !important;
+  }
+}
+.details-container ._back-btn-container {
+  display: flex;
+  margin: 50px 0;
+}
+.details-container ._back-btn-container ._back-btn {
+  color: #000000;
+  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.4);
+  margin: 15px 50px;
+  padding: 6px 30px;
+}
+.details-container ._back-btn-container .link {
+  text-decoration: none;
+  color: black;
+}
+.details-container ._detail-info-container {
+  display: flex;
+  height: 400px;
+}
+.details-container ._detail-info-container ._flag-container {
+  width: 50%;
+}
+.details-container ._detail-info-container ._flag-container ._flag {
+  width: 75%;
+  height: 100%;
+  margin: 0px 50px;
+}
+.details-container ._detail-info-container ._info-container {
+  width: 50%;
+  padding: 50px 0;
+}
+.details-container ._detail-info-container ._info-container ._info-title {
+  margin: 20px 0;
+  font-size: 20px;
+}
+.details-container ._detail-info-container ._info-container ._info-row {
+  display: flex;
+}
+.details-container ._detail-info-container ._info-container ._info-row p {
+  width: 50%;
+  padding: 5px 0;
+}
+.details-container ._detail-info-container ._info-container ._info-border-countries {
+  margin-top: 50px;
+}
+.details-container ._detail-info-container ._info-container ._info-border-countries ._border-countries-btn {
+  color: black;
+  margin: 0 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (max-width: 740px) {
+  .details-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+  ._detail-info-container {
+    flex-direction: column;
+    height: auto !important;
+  }
+  ._back-btn {
+    margin: 0 !important;
+  }
+  ._flag {
+    margin: 0 !important;
+    width: 100% !important;
+  }
+  ._info-container {
+    width: 100% !important;
+  }
+  ._flag-container {
+    width: 100% !important;
+  }
+  ._info-row {
+    flex-direction: column;
+  }
+  ._info-row p {
+    width: 100% !important;
+  }
+}
 @font-face {
   font-family: "Nunito Sans bold";
   src: url("../fonts/NunitoSans-Black.ttf");
