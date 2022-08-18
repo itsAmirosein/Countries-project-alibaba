@@ -1,5 +1,8 @@
 export interface InitialState {
-    countriesData: []
+    countriesData: CountriesDataType[],
+    searchInputValue:string;
+    filterValue:string,
+    filterItems:string[]
 }
 export interface ActionsType {
     type: string;
@@ -12,4 +15,11 @@ export interface ResponseGenerator {
     request?: any,
     status?: number,
     statusText?: string
+}
+type CountriesDataType = {
+    name?: string;
+    flag?: string;
+    population?: number;
+    region?: string;
+    capital?: string
 }
