@@ -1,5 +1,7 @@
 export const URLS = {
     get: {
-        getAllCountries: () => `/all`
+        getAllCountries: () => `/all`,
+        getSearchedCountry:(name:string)=>`/name/${name}`,
+        getFilteredCountries:(region:string)=>`region/${region}`
     }
 }
