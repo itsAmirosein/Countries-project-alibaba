@@ -1,9 +1,14 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { InitialState } from '../redux/types'
 import { CardsProps } from './types'
 
 function Cards({ cardInfo }: CardsProps) {
+    
+    const { darkMode } = useSelector((state: InitialState) => state)
+
     return (
-        <div className='card'>
+        <div className={`card ${darkMode ? 'darkMode' : 'lightMode'}`}>
             <div className='_flag-container'>
                 <img src={cardInfo?.flag} alt='flag' className='_flag-img'/>
             </div>

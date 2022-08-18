@@ -3,6 +3,7 @@ export interface InitialState {
     searchInputValue:string;
     filterValue:string,
     filterItems:string[]
+    darkMode:boolean
 }
 export interface ActionsType {
     type: string;
@@ -21,5 +22,12 @@ type CountriesDataType = {
     flag?: string;
     population?: number;
     region?: string;
-    capital?: string
+    capital?: string;
+    nativeName?:string;
+    subregion?:string;
+    topLevelDomain?:string[];
+    currencies?:any;
+    languages?:any;
+    borders?:string[],
+    alpha3Code?:string;
 }
